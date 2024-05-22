@@ -12,10 +12,12 @@ from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver import Remote
 
 class Base_Setup:
+    CONFIG_PATH = "../config.properties"
+    XL_PATH = "../test_data/input.xlsx"
     @pytest.fixture(autouse=True)
     def precondition(self):
         ppt_obt = Properties()
-        ppt_obt.load(open("../config.properties"))
+        ppt_obt.load(open(self.CONFIG_PATH))
         browser = ppt_obt["BROWSER"]
         grid = ppt_obt["GRID"]
         grid_url = ppt_obt["GRID_URL"]

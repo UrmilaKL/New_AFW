@@ -8,8 +8,8 @@ from page.enter_time_track_page import EnterTimeTrackPage
 class Test_ValidLogin(Base_Setup):
     @pytest.mark.run(order=1)
     def test_valid_login(self):
-        un = Excel.get_cell_data("../test_data/input.xlsx","valid_login",2, 1)
-        pw = Excel.get_cell_data("../test_data/input.xlsx","valid_login",2,2)
+        un = Excel.get_cell_data(self.XL_PATH,"valid_login",2, 1)
+        pw = Excel.get_cell_data(self.XL_PATH,"valid_login",2,2)
         # 1. Enter valid UN
         loginpage = LoginPage(self.driver)
         loginpage.set_username(un)
