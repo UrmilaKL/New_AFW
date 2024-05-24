@@ -12,8 +12,8 @@ from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver import Remote
 
 class Base_Setup:
-    CONFIG_PATH = "../config.properties"
-    XL_PATH = "../test_data/input.xlsx"
+    CONFIG_PATH = "config.properties"
+    XL_PATH = "test_data/input.xlsx"
     @pytest.fixture(autouse=True)
     def precondition(self):
         ppt_obt = Properties()

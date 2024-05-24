@@ -16,3 +16,6 @@ class EnterTimeTrackPage:
             print("Home page NOT displayed")
             return False
 
+    def click_logoutLink(self):
+        self.driver.find_element(*self.__logout).click()
+
