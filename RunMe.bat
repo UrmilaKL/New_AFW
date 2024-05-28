@@ -1,0 +1,1 @@
+pytest -vs --html result.html --capture sys
