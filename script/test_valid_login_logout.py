@@ -1,3 +1,5 @@
+import time
+
 import pytest
 
 from generic.base_setup import Base_Setup
@@ -11,15 +13,16 @@ class Test_ValidLoginLogout(Base_Setup):
         un = Excel.get_cell_data(self.XL_PATH,"valid_login",2, 1)
         pw = Excel.get_cell_data(self.XL_PATH,"valid_login",2,2)
         # 1. Enter valid UN
-        loginpage = LoginPage(self.driver)
-        loginpage.set_username(un)
+        loginlogoutpage = LoginPage(self.driver)
+        loginlogoutpage.set_username(un)
         # 2. Enter valid PW
-        loginpage.set_password(pw)
+        loginlogoutpage.set_password(pw)
         # 3. Click on login button
-        loginpage.click_loginButton()
+        loginlogoutpage.click_loginButton()
         # 4. Verify the home page is displayed
         # Click Logout Button, Verify login page is displayed
+        #time.sleep(2)
         logoutpage = EnterTimeTrackPage(self.driver)
         logoutpage.click_logoutLink()
-        status = loginpage.verify_login_page_displayed()
+        status = loginlogoutpage.verify_login_page_displayed(self.wait)
         assert status

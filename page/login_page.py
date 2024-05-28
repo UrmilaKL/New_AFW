@@ -29,7 +29,7 @@ class LoginPage:
             print("Error NOT displayed")
             return False
 
-    def verify_login_page_displayed(self):
+    def verify_login_page_displayed(self, wait):
         try:
             wait.until(expected_conditions.visibility_of_element_located(self.__loginButton))
             print("Error displayed")
